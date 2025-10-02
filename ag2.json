@@ -1,11 +1,13 @@
 {
   "package1": {
+    "version": "v1.0.0",
     "files": [
       "/p1f1",
       "/p1f2"
     ]
   },
   "package2": {
+    "version": "v3.2.1",
     "files": [
       "/p2f1",
       "/p2f2"
