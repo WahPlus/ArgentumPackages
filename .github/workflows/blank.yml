@@ -31,3 +31,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: python /home/runner/work/ArgentumPackages/ArgentumPackages/.github/workflows/versionArchive.py
+
+      - name: Stage, commit, and push
+        uses: amousavigourabi/push-action@v0
+        with:
+          message: Archived current version
