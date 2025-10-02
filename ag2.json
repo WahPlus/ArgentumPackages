@@ -1,14 +1,14 @@
 {
   "package1": {
-    "files": {
+    "files": [
       "/p1f1",
       "/p1f2"
-    }
+    ]
   },
   "package2": {
-    "files": {
+    "files": [
       "/p2f1",
       "/p2f2"
-    }
+    ]
   }
 }
