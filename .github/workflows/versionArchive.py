@@ -12,5 +12,5 @@ for package in agConfig:
   for dirPath, dirNames, fileNames in os.walk("./" + package + "-versions/"):
     versionsSaved.extend(dirNames)
     break
-    if agConfig[package]["version"] not in versionsSaved:
-      print("Stinky!")
+  if agConfig[package]["version"] not in versionsSaved:
+    print("Stinky!")
