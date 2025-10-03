@@ -8,13 +8,15 @@ with open("./ag2.json") as f:
   agConfig = json.load(f)
 
 for package in agConfig:
-  if not os.path.isdir("./" + package + "-versions/" + agConfig[package]["version"]):
-    os.mkdir("./" + package + "-versions/" + agConfig[package]["version"])
+  if not os.path.isdir("./" + package + "-versions"):
+    os.mkdir("./" + package + "-versions")
   versionsSaved = []
   for dirPath, dirNames, fileNames in os.walk("./" + package + "-versions/"):
     versionsSaved.extend(dirNames)
     break
   if agConfig[package]["version"] not in versionsSaved:
+    if not os.path.isdir("./" + package + "-versions/" + agConfig[package]["version"]):
+      os.mkdir("./" + package + "-versions/" + agConfig[package]["version"])
     currentVersionDir = "./" + package + "-versions/" + agConfig[package]["version"]
     with open(os.path.join(currentVersionDir, "ag2.json"), "w") as f:
       json.dump({"package": agConfig[package]}, f, sort_keys=True, indent=2)
