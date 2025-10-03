@@ -20,7 +20,7 @@ for package in agConfig:
       json.dump({"package": agConfig[package]}, f, sort_keys=True, indent=4)
     if agConfig[package]["directories"]:
       for i in agConfig[package]["directories"]:
-        os.mkdir(os.path.join(currentVersionDir, agConfig[package]["directories"][i])
+        os.mkdir(os.path.join(currentVersionDir, agConfig[package]["directories"][i]))
     if agConfig[package]["files"]:
       for i in agConfig[package]["files"]:
         shutil.copyfile(os.path.join("./", agConfig[package]["files"][i]), os.path.join(currentVersionDir, agConfig[package]["files"][i]))
