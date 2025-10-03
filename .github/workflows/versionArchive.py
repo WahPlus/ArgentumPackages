@@ -16,7 +16,7 @@ for package in agConfig:
     break
   if agConfig[package]["version"] not in versionsSaved:
     currentVersionDir = "./" + package + "-versions/" + agConfig[package]["version"]
-    with open(currentVersionDir + "ag2.json", "w") as f:
+    with open(os.path.join(currentVersionDir, "ag2.json"), "w") as f:
       json.dump({"package": agConfig[package]}, f, sort_keys=True, indent=2)
     if "directories" in agConfig[package]:
       for i in agConfig[package]["directories"]:
