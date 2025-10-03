@@ -8,8 +8,8 @@ with open("./ag2.json") as f:
   agConfig = json.load(f)
 
 for package in agConfig:
-  if not os.path.isdir("./" + package + "-versions/"):
-    os.mkdir("./" + package + "-versions/")
+  if not os.path.isdir("./" + package + "-versions/" + agConfig[package]["version"]):
+    os.mkdir("./" + package + "-versions/" + agConfig[package]["version"])
   versionsSaved = []
   for dirPath, dirNames, fileNames in os.walk("./" + package + "-versions/"):
     versionsSaved.extend(dirNames)
