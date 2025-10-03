@@ -1,0 +1,9 @@
+{
+    "package": {
+        "files": [
+            "p1f1",
+            "p1f2"
+        ],
+        "version": "v1.0.0"
+    }
+}
