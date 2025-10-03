@@ -1,9 +1,11 @@
 import json
 import os
+import shutil
 
 os.chdir("/home/runner/work/ArgentumPackages/ArgentumPackages/")
 
-agConfig = json.load(open("./ag2.json"))
+with open("./ag2.json") as f:
+  agConfig = json.load(f)
 
 for package in agConfig:
   if not os.path.isdir("./" + package + "-versions/"):
@@ -13,4 +15,12 @@ for package in agConfig:
     versionsSaved.extend(dirNames)
     break
   if agConfig[package]["version"] not in versionsSaved:
-    print("Stinky!")
+    currentVersionDir = "./" + package + "-versions"
+    with open(currentVersionDir + "/ag2.json", "w") as f:
+      json.dump({"package": agConfig[package]}, f, sort_keys=True, indent=4)
+    if agConfig[package]["directories"]:
+      for i in agConfig[package]["directories"]:
+        os.mkdir(os.path.join(currentVersionDir, agConfig[package]["directories"][i])
+    if agConfig[package]["files"]:
+      for i in agConfig[package]["files"]:
+        shutil.copyfile(os.path.join("./", agConfig[package]["files"][i]), os.path.join(currentVersionDir, agConfig[package]["files"][i]))
