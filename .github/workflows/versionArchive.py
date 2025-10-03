@@ -18,9 +18,9 @@ for package in agConfig:
     currentVersionDir = "./" + package + "-versions"
     with open(currentVersionDir + "/ag2.json", "w") as f:
       json.dump({"package": agConfig[package]}, f, sort_keys=True, indent=4)
-    if agConfig[package]["directories"]:
+    if "directories" in agConfig[package]:
       for i in agConfig[package]["directories"]:
         os.mkdir(os.path.join(currentVersionDir, agConfig[package]["directories"][i]))
-    if agConfig[package]["files"]:
+    if "files" in agConfig[package]:
       for i in agConfig[package]["files"]:
         shutil.copyfile(os.path.join("./", agConfig[package]["files"][i]), os.path.join(currentVersionDir, agConfig[package]["files"][i]))
