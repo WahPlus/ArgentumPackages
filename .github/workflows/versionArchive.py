@@ -19,7 +19,7 @@ for package in agConfig:
       os.mkdir("./" + package + "-versions/" + agConfig[package]["version"])
     currentVersionDir = "./" + package + "-versions/" + agConfig[package]["version"]
     with open(os.path.join(currentVersionDir, "ag2.json"), "w") as f:
-      json.dump({"package": agConfig[package]}, f, sort_keys=True, indent=2)
+      json.dump({package: agConfig[package]}, f, sort_keys=True, indent=2)
     if "directories" in agConfig[package]:
       for i in agConfig[package]["directories"]:
         os.mkdir(os.path.join(currentVersionDir, i))
